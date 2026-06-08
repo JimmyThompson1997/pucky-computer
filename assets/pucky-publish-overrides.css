@@ -31,3 +31,50 @@
     white-space: normal;
   }
 }
+
+.android-native-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  gap: 12px;
+  width: 100%;
+  max-width: 660px;
+  margin-inline: auto;
+}
+
+.android-native-item {
+  flex: 1 1 152px;
+  min-width: 152px;
+  max-width: 164px;
+  min-height: 104px;
+  padding: 14px 12px;
+  text-align: center;
+}
+
+.android-native-item span {
+  display: block;
+  max-width: 100%;
+}
+
+@media (max-width: 980px) {
+  .android-native-grid {
+    max-width: 520px;
+  }
+}
+
+@media (max-width: 520px) {
+  .android-native-grid {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    max-width: none;
+  }
+
+  .android-native-item {
+    min-width: 92px;
+    max-width: none;
+    min-height: 72px;
+    padding: 10px 14px;
+  }
+}

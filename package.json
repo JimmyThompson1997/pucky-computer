@@ -1,0 +1,16 @@
+{
+  "name": "pucky-computer",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "preview:local": "node scripts/static-preview.mjs",
+    "vercel:dev": "npx vercel dev --listen 127.0.0.1:4173",
+    "test:e2e": "playwright test",
+    "test:e2e:local": "node scripts/run-playwright.mjs local",
+    "test:e2e:live": "node scripts/run-playwright.mjs live"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.55.0",
+    "vercel": "^48.4.1"
+  }
+}
