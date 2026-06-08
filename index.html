@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pucky - The Smartphone AI Agent</title>
+<link rel="stylesheet" href="assets/pucky-landing.css">
+<link rel="stylesheet" href="assets/pucky-publish-overrides.css">
+<link rel="preload" as="image" href="assets/pucky-hero-desktop.webp" media="(min-width: 641px)" fetchpriority="high">
+<link rel="preload" as="image" href="pucky-hero-mobile.webp" media="(max-width: 640px)" fetchpriority="high">
+
+</head>
+<body>
+
+<nav>
+  <a class="nav-mark" href="#">PUCKY.COMPUTER</a>
+  <div class="nav-links" aria-label="Page sections">
+    <a class="nav-cta" href="#about">About</a>
+    <a class="nav-cta nav-cta--secondary" href="#faq">FAQ</a>
+  </div>
+</nav>
+
+<!-- â•â• SECTION 1: CANVAS HERO â•â• -->
+<div class="canvas">
+  <picture class="canvas-picture">
+    <source media="(max-width: 640px)" srcset="pucky-hero-mobile.webp" type="image/webp">
+    <img class="canvas-img" id="heroImg"
+       src="assets/pucky-hero-desktop.webp"
+       alt="Deep blue sky with golden clouds"
+       fetchpriority="high"
+       decoding="async">
+
+  </picture>
+
+  <div class="hero-text" id="heroText">
+    <h1 class="main-title">PUCKY</h1>
+    <span class="main-sub">The Smartphone AI Agent</span>
+    <br>
+    <a class="btn" href="https://github.com/JimmyThompson1997/Motorolla" aria-label="View Pucky on GitHub">
+      <svg viewBox="0 0 16 16" aria-hidden="true">
+        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82A7.65 7.65 0 0 1 8 3.86c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/>
+      </svg>
+      GitHub
+    </a>
+  </div>
+</div>
+
+<!-- APP TICKER: LIVE COMPOSIO CATALOG URLS - approved local preview addition -->
+<section class="app-ticker" aria-label="Apps Pucky can connect with via Composio">
+  <div class="ticker-heading">
+    <span class="ticker-label">Connect Your Apps</span>
+    <a class="ticker-search-button" href="https://composio.dev/toolkits" aria-label="Browse app integrations on Composio">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M10.8 18.1a7.3 7.3 0 1 1 5.16-2.14l4.04 4.04-1.42 1.42-4.04-4.04a7.26 7.26 0 0 1-3.74 1.03Zm0-2a5.3 5.3 0 1 0 0-10.6 5.3 5.3 0 0 0 0 10.6Z" fill="currentColor"/>
+      </svg>
+    </a>
+  </div>
+  <div class="ticker-track" aria-label="Popular Composio app integrations">
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View Gmail toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/gmail.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">Gmail</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View Google Calendar toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/googlecalendar.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">Google Calendar</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View Google Drive toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/googledrive.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">Google Drive</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View GitHub toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/github.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">GitHub</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View Zoom toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/zoom.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">Zoom</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View Airtable toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/airtable.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">Airtable</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View Salesforce toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/salesforce.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">Salesforce</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View Dropbox toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/dropbox.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">Dropbox</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View Shopify toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/shopify.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">Shopify</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View Zendesk toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/zendesk.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">Zendesk</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View Mailchimp toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/mailchimp.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">Mailchimp</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View Typeform toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/typeform.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">Typeform</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View Discord toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/discord.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">Discord</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View WhatsApp toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/whatsapp.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">WhatsApp</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View YouTube toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/youtube.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">YouTube</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View Facebook toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/facebook.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">Facebook</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View Google Meet toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/googlemeet.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">Google Meet</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View Box toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/box.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">Box</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View Bitbucket toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/bitbucket.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">Bitbucket</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View ClickUp toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/clickup.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">ClickUp</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View Google Sheets toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/googlesheets.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">Google Sheets</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View Google Docs toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/googledocs.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">Google Docs</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View Slack toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/slack.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">Slack</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View Microsoft Teams toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/microsoft_teams.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">Microsoft Teams</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View Outlook toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/outlook.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">Outlook</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View Notion toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/notion.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">Notion</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View Asana toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/asana.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">Asana</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View Trello toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/trello.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">Trello</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View Jira toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/jira.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">Jira</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View Linear toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/linear.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">Linear</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View HubSpot toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/hubspot.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">HubSpot</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View OneDrive toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/one_drive.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">OneDrive</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View Stripe toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/stripe.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">Stripe</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View QuickBooks toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/quickbooks.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">QuickBooks</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View Intercom toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/intercom.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">Intercom</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View Calendly toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/calendly.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">Calendly</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View Figma toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/figma.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">Figma</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View SendGrid toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/sendgrid.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">SendGrid</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View Telegram toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/telegram.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">Telegram</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View LinkedIn toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/linkedin.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">LinkedIn</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View Instagram toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/instagram.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">Instagram</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View Excel toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/excel.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">Excel</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View GitLab toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/gitlab.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">GitLab</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View Monday toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/monday.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">Monday</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View Todoist toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/todoist.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">Todoist</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View Freshdesk toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/freshdesk.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">Freshdesk</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View 1password toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/1password.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">1password</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View Basecamp toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/basecamp.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">Basecamp</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View Gmail toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/gmail.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">Gmail</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View Google Calendar toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/googlecalendar.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">Google Calendar</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View Google Drive toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/googledrive.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">Google Drive</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View GitHub toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/github.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">GitHub</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View Zoom toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/zoom.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">Zoom</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View Airtable toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/airtable.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">Airtable</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View Salesforce toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/salesforce.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">Salesforce</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View Dropbox toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/dropbox.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">Dropbox</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View Shopify toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/shopify.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">Shopify</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View Zendesk toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/zendesk.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">Zendesk</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View Mailchimp toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/mailchimp.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">Mailchimp</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View Typeform toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/typeform.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">Typeform</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View Discord toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/discord.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">Discord</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View WhatsApp toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/whatsapp.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">WhatsApp</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View YouTube toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/youtube.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">YouTube</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View Facebook toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/facebook.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">Facebook</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View Google Meet toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/googlemeet.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">Google Meet</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View Box toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/box.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">Box</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View Bitbucket toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/bitbucket.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">Bitbucket</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View ClickUp toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/clickup.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">ClickUp</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View Google Sheets toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/googlesheets.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">Google Sheets</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View Google Docs toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/googledocs.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">Google Docs</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View Slack toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/slack.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">Slack</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View Microsoft Teams toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/microsoft_teams.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">Microsoft Teams</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View Outlook toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/outlook.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">Outlook</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View Notion toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/notion.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">Notion</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View Asana toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/asana.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">Asana</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View Trello toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/trello.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">Trello</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View Jira toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/jira.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">Jira</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View Linear toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/linear.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">Linear</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View HubSpot toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/hubspot.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">HubSpot</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View OneDrive toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/one_drive.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">OneDrive</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View Stripe toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/stripe.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">Stripe</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View QuickBooks toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/quickbooks.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">QuickBooks</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View Intercom toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/intercom.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">Intercom</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View Calendly toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/calendly.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">Calendly</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View Figma toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/figma.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">Figma</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View SendGrid toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/sendgrid.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">SendGrid</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View Telegram toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/telegram.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">Telegram</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View LinkedIn toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/linkedin.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">LinkedIn</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View Instagram toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/instagram.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">Instagram</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View Excel toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/excel.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">Excel</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View GitLab toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/gitlab.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">GitLab</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View Monday toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/monday.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">Monday</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View Todoist toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/todoist.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">Todoist</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View Freshdesk toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/freshdesk.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">Freshdesk</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View 1password toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/1password.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">1password</span></a>
+      <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View Basecamp toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/basecamp.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">Basecamp</span></a>
+  </div>
+</section>
+<section class="s2-channel" id="channel">
+  <div class="s2-bg"></div>
+  <div class="s2-overlay"></div>
+  <div class="s2-content">
+    <div class="s2-copy">
+      <h2 class="s2-android-title">Runs on<br>Android 7.1+</h2>
+    </div>
+
+    <div class="cover-runtime-device" aria-label="Interactive Pucky cover UI runtime preview">
+      <iframe class="cover-runtime-frame" src="about:blank" data-src="pucky-cover-runtime/index.html?reset_nav=1" title="Interactive Pucky cover UI preview" loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- â•â• SECTION 3: CAPABILITIES â•â• -->
+<section class="android-native-belt" aria-label="Android phone surfaces Pucky can operate">
+  <div class="android-native-copy">
+    <h2>Pucky connects to your smartphone</h2>
+  </div>
+  <div class="android-native-grid">
+    <div class="android-native-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.5 4.5 10 7 8.5 9.2c1.1 2.3 3 4.2 5.3 5.3L16 13l2.5 2.5-1.1 2.8c-.3.8-1.1 1.3-2 1.2C10 18.8 5.2 14 4.5 8.6c-.1-.9.4-1.7 1.2-2z"/></svg><span>Phone</span></div>
+    <div class="android-native-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5h14v10H9l-4 4V5z"/><path d="M8 9h8M8 12h5"/></svg><span>SMS</span></div>
+    <div class="android-native-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4v3M18 4v3M4 9h16M5 6h14v14H5z"/><path d="M8 13h3v3H8z"/></svg><span>Calendar</span></div>
+    <div class="android-native-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 15V10a6 6 0 0 0-12 0v5l-2 3h16z"/><path d="M10 20h4"/></svg><span>Notifications</span></div>
+    <div class="android-native-item"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="13" r="7"/><path d="M9 2h6M12 13l3-3"/></svg><span>Timer</span></div>
+    <div class="android-native-item"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3"/><path d="M5 20a7 7 0 0 1 14 0"/></svg><span>Contacts</span></div>
+    <div class="android-native-item"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="14" rx="2"/><path d="m7 16 4-4 3 3 2-2 2 3"/><circle cx="16" cy="9" r="1"/></svg><span>Photos</span></div>
+    <div class="android-native-item android-native-item--clone" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.5 4.5 10 7 8.5 9.2c1.1 2.3 3 4.2 5.3 5.3L16 13l2.5 2.5-1.1 2.8c-.3.8-1.1 1.3-2 1.2C10 18.8 5.2 14 4.5 8.6c-.1-.9.4-1.7 1.2-2z"/></svg><span>Phone</span></div>
+    <div class="android-native-item android-native-item--clone" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5h14v10H9l-4 4V5z"/><path d="M8 9h8M8 12h5"/></svg><span>SMS</span></div>
+    <div class="android-native-item android-native-item--clone" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4v3M18 4v3M4 9h16M5 6h14v14H5z"/><path d="M8 13h3v3H8z"/></svg><span>Calendar</span></div>
+    <div class="android-native-item android-native-item--clone" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 15V10a6 6 0 0 0-12 0v5l-2 3h16z"/><path d="M10 20h4"/></svg><span>Notifications</span></div>
+    <div class="android-native-item android-native-item--clone" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="13" r="7"/><path d="M9 2h6M12 13l3-3"/></svg><span>Timer</span></div>
+    <div class="android-native-item android-native-item--clone" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3"/><path d="M5 20a7 7 0 0 1 14 0"/></svg><span>Contacts</span></div>
+    <div class="android-native-item android-native-item--clone" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="14" rx="2"/><path d="m7 16 4-4 3 3 2-2 2 3"/><circle cx="16" cy="9" r="1"/></svg><span>Photos</span></div>
+  </div>
+</section>
+
+<section class="about-faq" id="about" aria-labelledby="about-title">
+  <div class="about-faq-inner">
+    <div class="about-panel">
+      <span class="section-kicker">About</span>
+      <h2 id="about-title">Pucky is a voice-first AI agent for your smartphone.</h2>
+      <p>Pucky lives on your Android, connects to your apps, and helps turn short voice commands into useful actions.</p>
+    </div>
+    <div class="faq-panel" id="faq" aria-labelledby="faq-title">
+      <span class="section-kicker">FAQ</span>
+      <h2 id="faq-title">Quick questions</h2>
+      <div class="faq-list">
+        <details open>
+          <summary>Who is it for?</summary>
+          <p>Busy individuals and professionals who want a powerhouse personal digital assistant to help you run your life.</p>
+        </details>
+        <details>
+          <summary>What is Pucky?</summary>
+          <p>Your personal digital assistant.</p>
+        </details>
+        <details>
+          <summary>Is this an Android app?</summary>
+          <p>Yes it is, but it is currently in beta and only downloadable via the APK, not in the Play Store.</p>
+        </details>
+        <details>
+          <summary>How do I get this?</summary>
+          <p>Copy this repo URL and paste it into your Claude Code, Codex, or Gemini agent: https://github.com/JimmyThompson1997/Motorolla. Ask the agent to clone the repo and build the Android APK.</p>
+        </details>
+        <details>
+          <summary>What can it connect to?</summary>
+          <p>On your Android device, email, calendar, chat, tasks, files, and other on-device apps. And other popular apps like Gmail, Google Calendar, Slack, Notion, GitHub, Google Drive, Airtable, Salesforce, Dropbox, and Trello. You can see the full integration list at <a href="https://composio.dev" target="_blank" rel="noopener">composio.dev</a>.</p>
+        </details>
+        <details>
+          <summary>Does it replace my apps?</summary>
+          <p>No.</p>
+        </details>
+        <details>
+          <summary>How do I talk to it?</summary>
+          <p>Hold a button, say what you need, and let Pucky prepare the next step.</p>
+        </details>
+        <details>
+          <summary>Can it run actions on my phone?</summary>
+          <p>Yes, when granted permissions like SMS, Phone, Photos, Video, Contacts, etc. access Pucky can take actions related to those sections of the Android operating system.</p>
+        </details>
+        <details>
+          <summary>Is it finished?</summary>
+          <p>No. This page is a preview of the product direction.</p>
+        </details>
+        <details>
+          <summary>Where can I follow the build?</summary>
+          <p>Follow me on <a href="https://x.com/Jimmyth0mps0n" target="_blank" rel="noreferrer">X</a>.</p>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+// Pin PUCKY title to vertical center of the blue sky zone
+// Blue sky occupies the top ~45% of the rendered image height
+// JS positions to ~22% of rendered height (center of that zone)
+function positionTitle() {
+  const text = document.getElementById('heroText');
+  if (text) {
+    text.style.top = '';
+  }
+}
+
+document.getElementById('heroImg').addEventListener('load', positionTitle);
+window.addEventListener('resize', positionTitle);
+positionTitle();
+
+(function deferCoverRuntime() {
+  const frame = document.querySelector('.cover-runtime-frame[data-src]');
+  if (!frame) return;
+  const loadFrame = () => {
+    if (frame.dataset.src && frame.getAttribute('src') === 'about:blank') {
+      frame.setAttribute('src', frame.dataset.src);
+    }
+  };
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      if (entries.some((entry) => entry.isIntersecting)) {
+        loadFrame();
+        observer.disconnect();
+      }
+    }, { rootMargin: '360px 0px' });
+    observer.observe(frame);
+  } else {
+    loadFrame();
+  }
+})();
+</script>
+
+
+
+
+<script>
+(function () {
+  var cards = document.querySelectorAll('.cover-clone-shell [data-feed-preview-card]');
+  cards.forEach(function (card) {
+    card.addEventListener('click', function () {
+      var wrap = card.closest('.card-wrap');
+      document.querySelectorAll('.cover-clone-shell .card-wrap').forEach(function (other) {
+        if (other !== wrap) other.classList.remove('is-open', 'is-card-menu-open');
+      });
+      if (wrap) wrap.classList.toggle('is-open');
+    });
+  });
+})();
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
