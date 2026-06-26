@@ -82,6 +82,10 @@
   line-height: 1.5;
 }
 
+.platform-title-line {
+  display: block;
+}
+
 .platform-panels {
   width: min(100%, 520px);
   display: grid;
