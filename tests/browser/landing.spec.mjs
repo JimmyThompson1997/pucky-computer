@@ -2,8 +2,6 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { expect, test } from "@playwright/test";
 
-const BROKEN_RUNTIME_ROOTS = new Set(["/styles.css", "/app.js", "/pucky-config.js"]);
-
 async function writeJsonArtifact(testInfo, name, payload) {
   const filePath = testInfo.outputPath(name);
   await fs.mkdir(path.dirname(filePath), { recursive: true });
@@ -29,48 +27,39 @@ function visibleTileSelector() {
   return ':is([data-testid="android-surface-item"], .android-native-item):not([data-clone="true"]):not(.android-native-item--clone)';
 }
 
-test("runtime preview renders embedded feed without broken root asset requests", async ({ page }, testInfo) => {
-  const brokenResponses = [];
-  page.on("response", (response) => {
-    try {
-      const url = new URL(response.url());
-      if (response.status() === 404 && BROKEN_RUNTIME_ROOTS.has(url.pathname)) {
-        brokenResponses.push({
-          url: response.url(),
-          status: response.status()
-        });
-      }
-    } catch {
-      // Ignore non-standard URLs.
-    }
-  });
-
+test("platform section focuses on web and Android 16+ without the runtime embed", async ({ page }, testInfo) => {
   await page.goto("/");
   await page.waitForLoadState("domcontentloaded");
   await freezeMotion(page);
 
-  const previewSection = page.locator('[data-testid="cover-runtime-section"], .s2-channel').first();
-  const previewDevice = page.locator('[data-testid="cover-runtime-device"], .cover-runtime-device').first();
-  const previewFrame = page.locator('[data-testid="cover-runtime-frame"], .cover-runtime-frame').first();
+  const platformSection = page.locator('[data-testid="platform-section"], .s2-channel').first();
+  const platformPanels = page.locator('[data-testid="platform-panels"], .platform-panels').first();
+  const platformCards = page.locator('[data-testid="platform-card"], .platform-card');
 
-  await previewSection.scrollIntoViewIfNeeded();
-  await expect.poll(async () => previewFrame.getAttribute("src")).not.toBe("about:blank");
+  await platformSection.scrollIntoViewIfNeeded();
+  await platformSection.screenshot({ path: testInfo.outputPath("platform-section.png") });
 
-  const frameSrc = await previewFrame.getAttribute("src");
-  await previewSection.screenshot({ path: testInfo.outputPath("runtime-section.png") });
-  await previewDevice.screenshot({ path: testInfo.outputPath("runtime-device.png") });
-  await writeJsonArtifact(testInfo, "runtime-network.json", {
-    frameSrc,
-    brokenResponses
+  const summary = await platformSection.evaluate((section) => {
+    const heading = section.querySelector(".s2-android-title")?.textContent?.replace(/\s+/g, " ").trim() || "";
+    const body = section.querySelector(".platform-body")?.textContent?.replace(/\s+/g, " ").trim() || "";
+    const labels = Array.from(section.querySelectorAll(".platform-label")).map((node) => node.textContent?.trim() || "");
+    return {
+      heading,
+      body,
+      labels,
+      iframeCount: section.querySelectorAll("iframe").length
+    };
   });
+  await writeJsonArtifact(testInfo, "platform-section.json", summary);
 
-  await expect(previewFrame).toHaveAttribute("src", /\/pucky-cover-runtime\/\?reset_nav=1$/);
-
-  const frame = page.frameLocator('[data-testid="cover-runtime-frame"], .cover-runtime-frame');
-  await expect(frame.locator(".page-tabs .tab")).toHaveCount(5);
-  await expect.poll(async () => frame.locator(".card-wrap").count()).toBeGreaterThan(0);
-
-  expect(brokenResponses).toEqual([]);
+  await expect(platformPanels).toBeVisible();
+  await expect(platformCards).toHaveCount(2);
+  expect(summary.heading).toContain("Works on Web");
+  expect(summary.heading).toContain("Android 16+");
+  expect(summary.body).toContain("web");
+  expect(summary.body).toContain("Android 16+");
+  expect(summary.labels).toEqual(["Web", "Android 16+"]);
+  expect(summary.iframeCount).toBe(0);
 });
 
 test("smartphone surface tiles stay readable across viewports", async ({ page }, testInfo) => {

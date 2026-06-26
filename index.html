@@ -154,16 +154,44 @@
       <a class="ticker-item" href="https://composio.dev/toolkits" aria-label="View Basecamp toolkit on Composio"><img class="ticker-logo" src="assets/app-logos/basecamp.svg" alt="" loading="lazy" decoding="async"><span class="ticker-name">Basecamp</span></a>
   </div>
 </section>
-<section class="s2-channel" id="channel" data-testid="cover-runtime-section">
+<section class="s2-channel" id="channel" data-testid="platform-section">
   <div class="s2-bg"></div>
   <div class="s2-overlay"></div>
   <div class="s2-content">
     <div class="s2-copy">
-      <h2 class="s2-android-title">Runs on<br>Android 16+</h2>
+      <div class="platform-copy">
+        <span class="platform-kicker">Supported platforms</span>
+        <h2 class="s2-android-title">Works on Web<br>and Android 16+</h2>
+        <p class="platform-body">Use Pucky from the web and keep the full mobile experience on Android 16+.</p>
+      </div>
     </div>
 
-    <div class="cover-runtime-device" data-testid="cover-runtime-device" aria-label="Interactive Pucky cover UI runtime preview">
-      <iframe class="cover-runtime-frame" data-testid="cover-runtime-frame" src="about:blank" data-src="/pucky-cover-runtime/?reset_nav=1" title="Interactive Pucky cover UI preview" loading="lazy"></iframe>
+    <div class="platform-panels" data-testid="platform-panels" aria-label="Supported platforms">
+      <article class="platform-card" data-testid="platform-card">
+        <div class="platform-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" focusable="false">
+            <rect x="3.5" y="4.5" width="17" height="11" rx="2.5"></rect>
+            <path d="M8 19.5h8"></path>
+            <path d="M10 15.5v4"></path>
+            <path d="M14 15.5v4"></path>
+          </svg>
+        </div>
+        <span class="platform-label">Web</span>
+        <h3>Desktop browser access</h3>
+        <p>Open your workspace on the web for setup, routing, and cross-device control.</p>
+      </article>
+      <article class="platform-card" data-testid="platform-card">
+        <div class="platform-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" focusable="false">
+            <rect x="7" y="2.5" width="10" height="19" rx="2.5"></rect>
+            <path d="M10 5.5h4"></path>
+            <path d="M11 18.5h2"></path>
+          </svg>
+        </div>
+        <span class="platform-label">Android 16+</span>
+        <h3>Native phone experience</h3>
+        <p>Run the full on-device flow on Android 16+ with voice, apps, and phone-native actions.</p>
+      </article>
     </div>
   </div>
 </section>
@@ -261,49 +289,9 @@ function positionTitle() {
 document.getElementById('heroImg').addEventListener('load', positionTitle);
 window.addEventListener('resize', positionTitle);
 positionTitle();
-
-(function deferCoverRuntime() {
-  const frame = document.querySelector('.cover-runtime-frame[data-src]');
-  if (!frame) return;
-  const loadFrame = () => {
-    if (frame.dataset.src && frame.getAttribute('src') === 'about:blank') {
-      frame.setAttribute('src', frame.dataset.src);
-    }
-  };
-  if ('IntersectionObserver' in window) {
-    const observer = new IntersectionObserver((entries) => {
-      if (entries.some((entry) => entry.isIntersecting)) {
-        loadFrame();
-        observer.disconnect();
-      }
-    }, { rootMargin: '360px 0px' });
-    observer.observe(frame);
-  } else {
-    loadFrame();
-  }
-})();
-</script>
-
-
-
-
-<script>
-(function () {
-  var cards = document.querySelectorAll('.cover-clone-shell [data-feed-preview-card]');
-  cards.forEach(function (card) {
-    card.addEventListener('click', function () {
-      var wrap = card.closest('.card-wrap');
-      document.querySelectorAll('.cover-clone-shell .card-wrap').forEach(function (other) {
-        if (other !== wrap) other.classList.remove('is-open', 'is-card-menu-open');
-      });
-      if (wrap) wrap.classList.toggle('is-open');
-    });
-  });
-})();
 </script>
 </body>
 </html>
-
 
 
 

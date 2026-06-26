@@ -57,6 +57,99 @@
   max-width: 100%;
 }
 
+.platform-copy {
+  display: grid;
+  gap: 18px;
+  justify-items: center;
+  text-align: center;
+  max-width: 520px;
+}
+
+.platform-kicker {
+  display: block;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .42em;
+  text-transform: uppercase;
+  color: rgba(148, 207, 255, .76);
+}
+
+.platform-body {
+  max-width: 30rem;
+  color: rgba(244, 238, 224, .78);
+  font-size: clamp(16px, 1.55vw, 22px);
+  line-height: 1.5;
+}
+
+.platform-panels {
+  width: min(100%, 520px);
+  display: grid;
+  gap: 20px;
+  justify-self: center;
+}
+
+.platform-card {
+  display: grid;
+  gap: 14px;
+  padding: 28px 30px;
+  border: 1px solid rgba(239, 232, 214, .18);
+  border-radius: 30px;
+  background: linear-gradient(160deg, rgba(6, 12, 20, .9), rgba(11, 24, 40, .78));
+  box-shadow: 0 28px 60px rgba(0, 0, 0, .4), inset 0 1px 0 rgba(255, 255, 255, .05);
+  color: #f5f0e4;
+}
+
+.platform-icon {
+  width: 56px;
+  height: 56px;
+  display: grid;
+  place-items: center;
+  border-radius: 18px;
+  background: rgba(148, 207, 255, .1);
+  border: 1px solid rgba(148, 207, 255, .18);
+  color: rgba(148, 207, 255, .92);
+}
+
+.platform-icon svg {
+  width: 28px;
+  height: 28px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.platform-label {
+  display: inline-flex;
+  width: fit-content;
+  padding: 7px 12px 6px;
+  border: 1px solid rgba(239, 232, 214, .18);
+  border-radius: 999px;
+  color: rgba(244, 238, 224, .78);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+}
+
+.platform-card h3 {
+  font-family: 'Bodoni Moda', serif;
+  font-size: clamp(30px, 3.1vw, 42px);
+  line-height: .96;
+  letter-spacing: -.04em;
+  color: #f5f0e4;
+}
+
+.platform-card p {
+  max-width: 28rem;
+  color: rgba(244, 238, 224, .7);
+  font-size: 16px;
+  line-height: 1.55;
+}
+
 @media (max-width: 980px) {
   .android-native-grid {
     max-width: 520px;
@@ -69,6 +162,32 @@
     flex-wrap: nowrap;
     justify-content: flex-start;
     max-width: none;
+  }
+
+  .platform-copy {
+    gap: 14px;
+  }
+
+  .platform-body {
+    max-width: 22rem;
+    font-size: 15px;
+  }
+
+  .platform-panels {
+    gap: 16px;
+  }
+
+  .platform-card {
+    padding: 22px 20px;
+    border-radius: 24px;
+  }
+
+  .platform-card h3 {
+    font-size: clamp(24px, 7vw, 30px);
+  }
+
+  .platform-card p {
+    font-size: 14px;
   }
 
   .android-native-item {
