@@ -57,6 +57,11 @@
   max-width: 100%;
 }
 
+.about-faq-inner {
+  grid-template-columns: minmax(260px, 720px);
+  justify-content: start;
+}
+
 .platform-copy {
   display: grid;
   gap: 18px;

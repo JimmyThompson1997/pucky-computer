@@ -159,13 +159,13 @@ test("anchors and outbound links stay wired", async ({ page }) => {
   await page.waitForLoadState("domcontentloaded");
 
   const aboutLink = page.getByRole("link", { name: "About" });
-  const faqLink = page.getByRole("link", { name: "FAQ" });
   const waitlistLink = page.getByRole("link", { name: /Join Pucky waitlist/i });
   const searchLink = page.getByRole("link", { name: /Browse app integrations on Composio/i });
   const firstTickerItem = page.locator(".ticker-item").first();
 
   await expect(aboutLink).toHaveAttribute("href", "#about");
-  await expect(faqLink).toHaveAttribute("href", "#faq");
+  await expect(page.getByRole("link", { name: "FAQ" })).toHaveCount(0);
+  await expect(page.locator("#faq, .faq-panel, .faq-list")).toHaveCount(0);
   await expect(waitlistLink).toHaveAttribute(
     "href",
     "https://docs.google.com/forms/d/e/1FAIpQLSciK2U0IvfeVWuG3-gwsCut-EmDrw4zvmz5_UReuaU5Qd_Vng/viewform"
@@ -177,6 +177,4 @@ test("anchors and outbound links stay wired", async ({ page }) => {
 
   await aboutLink.click();
   await expect(page).toHaveURL(/#about$/);
-  await faqLink.click();
-  await expect(page).toHaveURL(/#faq$/);
 });
