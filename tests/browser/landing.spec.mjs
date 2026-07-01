@@ -122,10 +122,12 @@ test("smartphone surface tiles stay readable across viewports", async ({ page },
     }
 
     const grid = document.querySelector('[data-testid="android-native-grid"], .android-native-grid');
+    const heading = document.querySelector('[data-testid="android-native-belt"] h2, .android-native-belt h2')?.textContent?.replace(/\s+/g, " ").trim() || "";
     const clones = Array.from(document.querySelectorAll('[data-clone="true"], .android-native-item--clone'));
     const visibleClones = clones.filter((node) => getComputedStyle(node).display !== "none").length;
 
     return {
+      heading,
       tileMetrics,
       overlapPairs,
       gridDisplay: grid ? getComputedStyle(grid).display : "",
@@ -137,6 +139,7 @@ test("smartphone surface tiles stay readable across viewports", async ({ page },
   await writeJsonArtifact(testInfo, "android-tiles.json", metrics);
 
   const expectedLabels = ["Inbox", "Tasks", "Calendar", "Reminders", "Notes", "Contacts"];
+  expect(metrics.heading).toBe("Run Your Life");
   expect(metrics.tileMetrics.map((metric) => metric.label)).toEqual(expectedLabels);
 
   const viewportWidth = testInfo.project.use.viewport.width;
