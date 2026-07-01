@@ -27,13 +27,12 @@ function visibleTileSelector() {
   return ':is([data-testid="android-surface-item"], .android-native-item):not([data-clone="true"]):not(.android-native-item--clone)';
 }
 
-test("platform section focuses on web and Android 16+ without the runtime embed", async ({ page }, testInfo) => {
+test("platform hero is one viewport and points to web app with mobile coming soon", async ({ page }, testInfo) => {
   await page.goto("/");
   await page.waitForLoadState("domcontentloaded");
   await freezeMotion(page);
 
   const platformSection = page.locator('[data-testid="platform-section"], .s2-channel').first();
-  const platformPanels = page.locator('[data-testid="platform-panels"], .platform-panels').first();
   const platformCards = page.locator('[data-testid="platform-card"], .platform-card');
 
   await platformSection.scrollIntoViewIfNeeded();
@@ -42,24 +41,28 @@ test("platform section focuses on web and Android 16+ without the runtime embed"
   const summary = await platformSection.evaluate((section) => {
     const heading = section.querySelector(".s2-android-title")?.textContent?.replace(/\s+/g, " ").trim() || "";
     const body = section.querySelector(".platform-body")?.textContent?.replace(/\s+/g, " ").trim() || "";
-    const labels = Array.from(section.querySelectorAll(".platform-label")).map((node) => node.textContent?.trim() || "");
+    const rect = section.getBoundingClientRect();
     return {
       heading,
       body,
-      labels,
-      iframeCount: section.querySelectorAll("iframe").length
+      text: section.textContent?.replace(/\s+/g, " ").trim() || "",
+      cardCount: section.querySelectorAll('[data-testid="platform-card"], .platform-card').length,
+      iframeCount: section.querySelectorAll("iframe").length,
+      sectionHeight: rect.height,
+      viewportHeight: window.innerHeight
     };
   });
   await writeJsonArtifact(testInfo, "platform-section.json", summary);
 
-  await expect(platformPanels).toBeVisible();
-  await expect(platformCards).toHaveCount(2);
-  expect(summary.heading).toContain("Works on Web");
-  expect(summary.heading).toContain("Android 16+");
-  expect(summary.body).toContain("web");
-  expect(summary.body).toContain("Android 16+");
-  expect(summary.labels).toEqual(["Web", "Android 16+"]);
+  await expect(platformCards).toHaveCount(0);
+  expect(summary.heading).toBe("Web App");
+  expect(summary.body).toBe("iOS and Android coming soon.");
+  expect(summary.text).not.toContain("Supported platforms");
+  expect(summary.text).not.toContain("Android 16+");
+  expect(summary.text).not.toContain("Desktop browser access");
+  expect(summary.cardCount).toBe(0);
   expect(summary.iframeCount).toBe(0);
+  expect(Math.abs(summary.sectionHeight - summary.viewportHeight)).toBeLessThanOrEqual(2);
 });
 
 test("smartphone surface tiles stay readable across viewports", async ({ page }, testInfo) => {
@@ -132,6 +135,9 @@ test("smartphone surface tiles stay readable across viewports", async ({ page },
   });
 
   await writeJsonArtifact(testInfo, "android-tiles.json", metrics);
+
+  const expectedLabels = ["Inbox", "Tasks", "Calendar", "Reminders", "Notes", "Contacts"];
+  expect(metrics.tileMetrics.map((metric) => metric.label)).toEqual(expectedLabels);
 
   const viewportWidth = testInfo.project.use.viewport.width;
   if (viewportWidth <= 520) {

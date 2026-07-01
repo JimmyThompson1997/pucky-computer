@@ -65,6 +65,29 @@
   max-width: 520px;
 }
 
+.s2-channel {
+  height: 100vh;
+  height: 100svh;
+  min-height: 0;
+}
+
+.s2-content {
+  height: 100%;
+  grid-template-columns: 1fr;
+  place-items: center;
+  padding: clamp(82px, 10vh, 118px) 0 clamp(42px, 7vh, 76px);
+}
+
+.s2-copy {
+  min-height: 0;
+  width: 100%;
+}
+
+.s2-android-title {
+  font-size: clamp(72px, 12vw, 168px);
+  line-height: .86;
+}
+
 .platform-kicker {
   display: block;
   font-family: 'Barlow Condensed', sans-serif;
@@ -78,8 +101,11 @@
 .platform-body {
   max-width: 30rem;
   color: rgba(244, 238, 224, .78);
-  font-size: clamp(16px, 1.55vw, 22px);
+  font-size: clamp(18px, 2.1vw, 30px);
+  font-weight: 800;
+  letter-spacing: .04em;
   line-height: 1.5;
+  text-transform: none !important;
 }
 
 .platform-title-line {
@@ -169,12 +195,23 @@
   }
 
   .platform-copy {
-    gap: 14px;
+    gap: 12px;
+    max-width: min(100%, 330px);
   }
 
   .platform-body {
-    max-width: 22rem;
+    max-width: 20rem;
     font-size: 15px;
+    letter-spacing: .03em;
+  }
+
+  .s2-content {
+    width: calc(100% - 36px);
+    padding: 76px 0 44px;
+  }
+
+  .s2-android-title {
+    font-size: clamp(58px, 19vw, 82px);
   }
 
   .platform-panels {
