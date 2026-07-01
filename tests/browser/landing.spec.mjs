@@ -151,13 +151,18 @@ test("anchors and outbound links stay wired", async ({ page }) => {
 
   const aboutLink = page.getByRole("link", { name: "About" });
   const faqLink = page.getByRole("link", { name: "FAQ" });
-  const githubLink = page.getByRole("link", { name: /GitHub/i }).first();
+  const waitlistLink = page.getByRole("link", { name: /Join Pucky waitlist/i });
   const searchLink = page.getByRole("link", { name: /Browse app integrations on Composio/i });
   const firstTickerItem = page.locator(".ticker-item").first();
 
   await expect(aboutLink).toHaveAttribute("href", "#about");
   await expect(faqLink).toHaveAttribute("href", "#faq");
-  await expect(githubLink).toHaveAttribute("href", "https://github.com/JimmyThompson1997/Motorolla");
+  await expect(waitlistLink).toHaveAttribute(
+    "href",
+    "https://docs.google.com/forms/d/e/1FAIpQLSciK2U0IvfeVWuG3-gwsCut-EmDrw4zvmz5_UReuaU5Qd_Vng/viewform"
+  );
+  await expect(waitlistLink).toHaveAttribute("target", "_blank");
+  await expect(waitlistLink).toHaveAttribute("rel", /noopener/);
   await expect(searchLink).toHaveAttribute("href", "https://composio.dev/toolkits");
   await expect(firstTickerItem).toHaveAttribute("href", "https://composio.dev/toolkits");
 
