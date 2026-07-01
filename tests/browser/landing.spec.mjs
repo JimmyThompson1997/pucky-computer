@@ -158,13 +158,13 @@ test("anchors and outbound links stay wired", async ({ page }) => {
   await page.goto("/");
   await page.waitForLoadState("domcontentloaded");
 
-  const aboutLink = page.getByRole("link", { name: "About" });
   const waitlistLink = page.getByRole("link", { name: /Join Pucky waitlist/i });
   const searchLink = page.getByRole("link", { name: /Browse app integrations on Composio/i });
   const firstTickerItem = page.locator(".ticker-item").first();
 
-  await expect(aboutLink).toHaveAttribute("href", "#about");
+  await expect(page.getByRole("link", { name: "About" })).toHaveCount(0);
   await expect(page.getByRole("link", { name: "FAQ" })).toHaveCount(0);
+  await expect(page.locator("#about, .about-faq, .about-panel")).toHaveCount(0);
   await expect(page.locator("#faq, .faq-panel, .faq-list")).toHaveCount(0);
   await expect(waitlistLink).toHaveAttribute(
     "href",
@@ -172,9 +172,17 @@ test("anchors and outbound links stay wired", async ({ page }) => {
   );
   await expect(waitlistLink).toHaveAttribute("target", "_blank");
   await expect(waitlistLink).toHaveAttribute("rel", /noopener/);
+  const waitlistStyle = await waitlistLink.evaluate((node) => {
+    const style = getComputedStyle(node);
+    return {
+      backgroundColor: style.backgroundColor,
+      borderRadius: Number.parseFloat(style.borderRadius),
+      color: style.color
+    };
+  });
+  expect(waitlistStyle.backgroundColor).toContain("255, 255, 255");
+  expect(waitlistStyle.borderRadius).toBeGreaterThanOrEqual(40);
+  expect(waitlistStyle.color).toBe("rgb(6, 16, 28)");
   await expect(searchLink).toHaveAttribute("href", "https://composio.dev/toolkits");
   await expect(firstTickerItem).toHaveAttribute("href", "https://composio.dev/toolkits");
-
-  await aboutLink.click();
-  await expect(page).toHaveURL(/#about$/);
 });
