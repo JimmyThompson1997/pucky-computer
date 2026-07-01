@@ -105,6 +105,11 @@
   transform: translateY(-1px);
 }
 
+.hero-text .main-title,
+.hero-text .main-sub {
+  color: #fff;
+}
+
 .platform-kicker {
   display: block;
   font-family: 'Barlow Condensed', sans-serif;

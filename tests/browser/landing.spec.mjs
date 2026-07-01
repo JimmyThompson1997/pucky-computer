@@ -174,15 +174,21 @@ test("anchors and outbound links stay wired", async ({ page }) => {
   await expect(waitlistLink).toHaveAttribute("rel", /noopener/);
   const waitlistStyle = await waitlistLink.evaluate((node) => {
     const style = getComputedStyle(node);
+    const titleStyle = getComputedStyle(document.querySelector(".main-title"));
+    const subtitleStyle = getComputedStyle(document.querySelector(".main-sub"));
     return {
       backgroundColor: style.backgroundColor,
       borderRadius: Number.parseFloat(style.borderRadius),
-      color: style.color
+      color: style.color,
+      titleColor: titleStyle.color,
+      subtitleColor: subtitleStyle.color
     };
   });
   expect(waitlistStyle.backgroundColor).toContain("255, 255, 255");
   expect(waitlistStyle.borderRadius).toBeGreaterThanOrEqual(40);
   expect(waitlistStyle.color).toBe("rgb(6, 16, 28)");
+  expect(waitlistStyle.titleColor).toBe("rgb(255, 255, 255)");
+  expect(waitlistStyle.subtitleColor).toBe("rgb(255, 255, 255)");
   await expect(searchLink).toHaveAttribute("href", "https://composio.dev/toolkits");
   await expect(firstTickerItem).toHaveAttribute("href", "https://composio.dev/toolkits");
 });
