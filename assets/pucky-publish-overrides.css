@@ -209,6 +209,10 @@
 }
 
 @media (max-width: 520px) {
+  .ticker-search-button {
+    display: none;
+  }
+
   .android-native-grid {
     display: flex;
     flex-wrap: nowrap;

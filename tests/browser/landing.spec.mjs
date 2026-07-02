@@ -154,12 +154,13 @@ test("smartphone surface tiles stay readable across viewports", async ({ page },
   }
 });
 
-test("anchors and outbound links stay wired", async ({ page }) => {
+test("anchors and outbound links stay wired", async ({ page }, testInfo) => {
   await page.goto("/");
   await page.waitForLoadState("domcontentloaded");
 
   const waitlistLink = page.getByRole("link", { name: /Join Pucky waitlist/i });
   const searchLink = page.getByRole("link", { name: /Browse app integrations on Composio/i });
+  const searchButton = page.locator(".ticker-search-button");
   const firstTickerItem = page.locator(".ticker-item").first();
 
   await expect(page.getByRole("link", { name: "About" })).toHaveCount(0);
@@ -189,6 +190,12 @@ test("anchors and outbound links stay wired", async ({ page }) => {
   expect(waitlistStyle.color).toBe("rgb(6, 16, 28)");
   expect(waitlistStyle.titleColor).toBe("rgb(255, 255, 255)");
   expect(waitlistStyle.subtitleColor).toBe("rgb(255, 255, 255)");
-  await expect(searchLink).toHaveAttribute("href", "https://composio.dev/toolkits");
+  if (testInfo.project.use.viewport.width <= 520) {
+    await expect(searchButton).toBeHidden();
+    await expect(searchLink).toHaveCount(0);
+  } else {
+    await expect(searchLink).toHaveAttribute("href", "https://composio.dev/toolkits");
+    await expect(searchButton).toBeVisible();
+  }
   await expect(firstTickerItem).toHaveAttribute("href", "https://composio.dev/toolkits");
 });
